@@ -12,7 +12,6 @@ import { env } from 'process';
     JwtModule.register({
       global: true,
       secret: env.JWT_SECRET,
-      //secret: 'MINHA_CHAVE_SECRETA',
       signOptions: { expiresIn: '60s' },
     }),
   ],
