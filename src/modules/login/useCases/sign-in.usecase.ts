@@ -1,24 +1,19 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { SignInDTO } from '../dto/sign-in.dto';
 import { JwtService } from '@nestjs/jwt';
-import { PrismaService } from 'src/infra/database/prisma.service';
 import { compare } from 'bcrypt';
+import { IUserRepository } from 'src/modules/users/repositories/user.repository';
 
 @Injectable()
 export class SignInUseCase {
   constructor(
     private jwtService: JwtService,
-    private prisma: PrismaService,
+    private userRepository: IUserRepository,
   ) {}
 
   async execute(data: SignInDTO) {
     //Validation of user existence
-
-    const user = await this.prisma.user.findFirst({
-      where: {
-        username: data.username,
-      },
-    });
+    const user = await this.userRepository.findByUsername(data.username);
 
     //If user does not exist
     if (!user) {

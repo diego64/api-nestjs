@@ -26,9 +26,9 @@ export class UserPrismaRepository implements IUserRepository {
   }
 
   async findByUsername(username: string): Promise<UserCreatedDTO> {
-    return await this.prisma.user.findUnique({
+    return await this.prisma.user.findFirst({
       where: {
-        username: data.username,
+        username,
       },
     });
   }
