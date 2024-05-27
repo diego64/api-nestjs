@@ -32,4 +32,10 @@ export class UserPrismaRepository implements IUserRepository {
       },
     });
   }
+
+  async findById(id: string): Promise<UserCreatedDTO> {
+    return this.prisma.user.findUnique({
+      where: { id },
+    });
+  }
 }
