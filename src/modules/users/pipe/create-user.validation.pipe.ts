@@ -11,6 +11,7 @@ import { CreateUserDTO } from '../dto/user.dto';
 export class CreateUserValidationPipe implements PipeTransform {
   transform(
     { name, email, username, password }: CreateUserDTO,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     metadata: ArgumentMetadata,
   ) {
     if (!name || !email || !username || !password) {
