@@ -11,7 +11,9 @@ import { IUserRepository } from '../user.repository';
 export class UserPrismaRepository implements IUserRepository {
   constructor(private prisma: PrismaService) {}
 
-  async findByUsernameOrEmail(data: UsernameAndEmail): Promise<UserCreatedDTO> {
+  async findByUsernameOrEmail(
+    data: UsernameAndEmail,
+  ): Promise<UserCreatedDTO | null> {
     return await this.prisma.user.findFirst({
       where: {
         OR: [{ username: data.username }, { email: data.email }],
@@ -25,7 +27,7 @@ export class UserPrismaRepository implements IUserRepository {
     });
   }
 
-  async findByUsername(username: string): Promise<UserCreatedDTO> {
+  async findByUsername(username: string): Promise<UserCreatedDTO | null> {
     return await this.prisma.user.findFirst({
       where: {
         username,
@@ -33,7 +35,7 @@ export class UserPrismaRepository implements IUserRepository {
     });
   }
 
-  async findById(id: string): Promise<UserCreatedDTO> {
+  async findById(id: string): Promise<UserCreatedDTO | null> {
     return this.prisma.user.findUnique({
       where: { id },
     });
