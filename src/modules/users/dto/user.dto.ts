@@ -17,7 +17,7 @@ export type UsernameAndEmail = {
 
 export type FileDTO = {
   fieldname: string;
-  originalName: string;
+  originalname: string;
   encoding: string;
   mimetype: string;
   buffer: Buffer;
