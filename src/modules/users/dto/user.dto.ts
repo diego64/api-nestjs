@@ -14,3 +14,12 @@ export type UsernameAndEmail = {
   email: string;
   username: string;
 };
+
+export type FileDTO = {
+  fieldname: string;
+  originalName: string;
+  encoding: string;
+  mimetype: string;
+  buffer: Buffer;
+  size: number;
+};
