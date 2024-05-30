@@ -8,8 +8,6 @@ import {
 } from '@nestjs/common';
 import { AuthGuard } from 'src/infra/providers/auth-guard.provider';
 import { CreateUserUseCase } from './useCases/create-user.usecase';
-//import { CreateUserDTO } from './dto/user.dto';
-//import { CreateUserValidationPipe } from './pipe/create-user.validation.pipe';
 import { ProfileUserUseCase } from './useCases/profile-user.usecase';
 import {
   CreateUserResponseSchemaDTO,
@@ -24,10 +22,9 @@ export class UserController {
   ) {}
 
   @Post()
-  //@UsePipes(new CreateUserValidationPipe())
   async create(@Body() data: CreateUserSchemaDTO) {
     const user = await this.createUserUseCase.execute(data);
-    return CreateUserResponseSchemaDTO.safeParse(user);
+    return CreateUserResponseSchemaDTO.parse(user);
   }
 
   @Get('/profile')
