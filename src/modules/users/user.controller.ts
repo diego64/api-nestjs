@@ -9,7 +9,7 @@ import {
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
-import { AuthGuard } from 'src/infra/providers/auth-guard.provider';
+import { AuthGuard } from '../../infra/providers/auth-guard.provider';
 import { CreateUserUseCase } from './useCases/create-user.usecase';
 import { ProfileUserUseCase } from './useCases/profile-user.usecase';
 import {
