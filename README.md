@@ -5,69 +5,129 @@
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
+<p align="center">
+		<em>Developed with the software and tools below.</em>
+</p>
+<p align="center">
+    <img src="img.shields.io/badge/NestJS-ED2945.svg?style=flat&logo=Nestjs&logoColor=white" alt="Nest">
+		<img src="img.shields.io/badge/Docker-2496ED.svg?style=flat&logo=Docker&logoColor=white" alt="Docker">
+	  <img src="img.shields.io/badge/Jest-C21325.svg?style=flat&logo=jest&logoColor=white" alt="Jest">
+	<br>
+  <img src="img.shields.io/badge/PostgreSQL-336791.svg?style=flat&logo&logo=postgresql&logoColor=white" alt="PostgreSQL">
+  <img src="img.shields.io/badge/Supabase-3ECF8E.svg?style=flat&logo=supabase&logoColor=white" alt="Supabase">
+  <img src="img.shields.io/badge/Apache_Kafka-231F20.svg?style=flat&logo=apache-kafka&logoColor=white" alt="Apache-kafka">
 </p>
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- [📍 Overview](#-overview)
+- [🧩 Features](#-features)
+- [🗂️ Repository Structure](#-repository-structure)
+- [🚀 Getting Started](#-getting-started)
+  - [⚙️ Installation](#️-installation)
+  - [🧪 Tests](#-tests)
+- [📄 License](#-license)
+- [👏 Acknowledgments](#-acknowledgments)
+</details>
+<hr>
 
-## Installation
+## 📍 Overview
 
-```bash
-$ npm install
+The project aims to register users, allowing them to create tasks and receive email notifications, through a micro-service, to remind them about deadlines.
+
+---
+
+## 🧩 Features
+
+|    |   Feature         | Description |
+|----|-------------------|---------------------------------------------------------------|
+| ⚙️  | **Architecture**  | The project is developed based on the CLI of the Nest.js framework, enabling more accessible configuration of micro-services and documentation with other tools. |
+| 🔩 | **Code Quality**  | The codebase follows best practices with automated testing using nox and pytest. It includes linting, formatting, and packaging commands in the Makefile for maintaining code quality. |
+| 📄 | **Documentation** | Extensive documentation is provided for setting up the environment, managing dependencies, and automating tasks. |
+| 🔌 | **Integrations**  | KKey integrations include Supase services for the clusters, Render for API hosting, and Kafka for microservices communication. |
+| 🧩 | **Modularity**    | The codebase is modular with abstract factory modules for parsers, parsers for various languages and frameworks, and utility functions for file handling and logging. |
+| 🧪 | **Testing**       | Testing frameworks like pytest are used for automated testing, with additional tools like pytest-asyncio for asynchronous testing and pytest-cov for coverage reporting. |
+| ⚡️  | **Performance**   | The project focuses on efficiency with tools like aiohttp for asynchronous HTTP requests, tenacity for retry logic, and anyio for asynchronous concurrency. |
+| 🛡️ | **Security**      | Security measures include handling API keys securely, validating Git repository URLs, and managing file permissions for cloning and fetching repositories. |
+| 📦 | **Dependencies**  | Key dependencies include shapely, Docker, Prisma, JWT, Kafka, Supabase, Jest and various other libraries for different functionalities. |
+
+---
+
+## 🗂️ Repository Structure
+
+```sh
+└── task-manager
+    ├── .github
+    ├── prisma
+    ├── src
+    ├── test
+    ├── .env
+    ├── docker-compose.yml
+    ├── LICENSE
 ```
 
-## Running the app
+---
 
-```bash
-# development
-$ npm run start
+## 🚀 Getting Started
 
-# watch mode
-$ npm run start:dev
+**System Requirements**
 
-# production mode
-$ npm run start:prod
-```
+* **Node.js**: `version 20.13.1`
+* **Docker**: `version 24.0.2`
 
-## Test
+### ⚙️ Installation
 
-```bash
-# unit tests
-$ npm run test
+<h4>From <code>source</code></h4>
 
-# e2e tests
-$ npm run test:e2e
+> 1. Clone the repository:
+>
+> ```console
+> $ git clone https://github.com/diego64/task-manager-api
+> ```
+>
+> 2. Change to the project directory:
+> ```console
+> $ task-manager-api
+> ```
+>
+> 3. Install the dependencies:
+> ```console
+> $ npm install
+> ```
+> 4. Install the database:
+> ```console
+> $ docker compose up -d
+> $ npx prisma migrate dev --name init
+> $ npx prisma generate
+> ```
+> 5. Start the application:
+> ```console
+> $ npm run start:dev
+> ```
 
-# test coverage
-$ npm run test:cov
-```
+### 🧪 Tests
 
-## Support
+> Run the test suite using the command below:
+> ```console
+> $ npm run test
+> ```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+---
 
-## Stay in touch
+## 📄 License
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+This project is protected under the [SELECT-A-LICENSE](https://choosealicense.com/licenses) License. For more details, refer to the [LICENSE](https://choosealicense.com/licenses/) file.
 
-## License
+---
 
-Nest is [MIT licensed](LICENSE).
+## 👏 Acknowledgments
+
+- List any resources, contributors, inspiration, etc. here.
+
+[**Return**](#-overview)
+
+---

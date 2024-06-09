@@ -14,13 +14,16 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
         transport: Transport.KAFKA,
         options: {
           client: {
-            brokers: ['127.0.0.1:9092'],
+            brokers: ['localhost:9092'],
           },
           consumer: {
             groupId: 'gp_app_task_manager',
           },
           producer: {
-            allowAutoTopicCreation: false,
+            allowAutoTopicCreation: true,
+            retry: {
+              retries: 1,
+            },
           },
         },
       },
